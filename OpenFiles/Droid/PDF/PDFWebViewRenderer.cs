@@ -18,7 +18,10 @@ namespace OpenFiles.Droid
 			{
 				var customWebView = Element as PDFWebView;
 				Control.Settings.AllowUniversalAccessFromFileURLs = true;
-				Control.LoadUrl(string.Format("file:///android_asset/pdfjs/web/viewer.html?file={0}", string.Format("file:///android_asset/Content/{0}", WebUtility.UrlEncode(customWebView.Uri))));
+
+				var fileName = $"file:///{customWebView.Uri}";
+				Control.LoadUrl($"file:///android_asset/pdfjs/web/viewer.html?file={fileName}");
+				//Control.LoadUrl(string.Format("file:///android_asset/pdfjs/web/viewer.html?file={0}", string.Format("file:///android_asset/Content/{0}", WebUtility.UrlEncode(customWebView.Uri))));
 			}
 		}
 	}
